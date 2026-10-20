@@ -1,0 +1,38 @@
+# ==========================================
+# FILE DATA PRIBADI & CADANGAN (JANGAN DI-PUSH)
+# ==========================================
+# Jangan sampai file backup catatan pribadi Anda terunggah ke publik!
+brankas-backup-*.json
+*.backup.json
+catatan-*.txt
+catatan-*.pdf
+
+# ==========================================
+# FILE SISTEM OPERASI (OS ARTIFACTS)
+# ==========================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# PENGATURAN EDITOR & IDE
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# LOG & TEMPORARY FILES
+# ==========================================
+*.log
+*.tmp
+*.temp
+scratch/
+.licenses/

@@ -1,0 +1,17 @@
+{
+  "name": "Brankas - Catatan Pribadi",
+  "short_name": "Brankas",
+  "description": "Aplikasi catatan harian dan brankas rahasia berbasis web offline dengan keamanan PIN",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f141c",
+  "theme_color": "#161c26",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><path d='M30 45V35a20 20 0 0 1 40 0v10h4a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6V51a6 6 0 0 1 6-6h4zm10 0h20V35a10 10 0 0 0-20 0v10zm10 16a4 4 0 0 0-4 4c0 1.6.9 2.9 2.2 3.6L46 76h8l-2.2-7.4A4 4 0 0 0 50 61z' fill='white'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
