@@ -803,6 +803,7 @@ body {
 .catatan-body {
     flex: 1;
     min-width: 0;
+    overflow: hidden;
 }
 
 .catatan-top-row {
@@ -812,6 +813,7 @@ body {
     margin-bottom: 4px;
     flex-wrap: nowrap;
     min-height: 22px;
+    overflow: hidden;
 }
 
 .catatan-title {
@@ -822,7 +824,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     flex: 1;
-    min-width: 0;
+    min-width: 60px;
 }
 
 .catatan-pin-badge {
@@ -866,6 +868,10 @@ body {
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .catatan-kategori.penting {
@@ -905,6 +911,7 @@ body {
     opacity: 0;
     transition: opacity 0.15s;
     align-self: center;
+    margin-left: 8px;
 }
 
 .catatan-card:hover .catatan-actions-col {
@@ -1836,17 +1843,51 @@ body {
         gap: 12px;
     }
 
+    .catatan-body {
+        overflow: hidden;
+    }
+
     .catatan-top-row {
         gap: 6px;
+        overflow: hidden;
     }
 
-    /* Sembunyikan teks 'Disematkan' di mobile, hanya tampilkan icon pin */
-    .catatan-pin-badge .pin-badge-text {
-        display: none;
+    .catatan-title {
+        min-width: 50px;
     }
 
-    .catatan-pin-badge {
+    /* Sembunyikan teks label badge di mobile agar muat rapi dan tidak saling bertabrakan */
+    .catatan-pin-badge .pin-badge-text,
+    .catatan-lock-badge .pin-badge-text,
+    .catatan-lock-badge .lock-badge-text {
+        display: none !important;
+    }
+
+    .catatan-pin-badge,
+    .catatan-lock-badge {
         padding: 2px 5px;
+    }
+
+    /* Di mobile, sembunyikan kata 'Tersisa' agar badge sampah kompak dan tidak menabrak tombol menu */
+    .trash-countdown-badge .trash-badge-prefix {
+        display: none !important;
+    }
+
+    .trash-countdown-badge {
+        padding: 2px 6px;
+        font-size: 0.68rem;
+        gap: 3px;
+    }
+
+    .trash-countdown-badge svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .catatan-kategori {
+        max-width: 75px;
+        padding: 2px 6px;
+        font-size: 0.68rem;
     }
 
     /* Di mobile, sembunyikan baris tombol aksi dan ganti dengan menu dropdown (titik tiga) */
@@ -1860,7 +1901,7 @@ body {
         justify-content: center;
         position: relative;
         flex-shrink: 0;
-        margin-left: auto;
+        margin-left: 8px;
     }
 
     .btn-mobile-more {
@@ -2118,6 +2159,10 @@ body {
     .btn-primary#btn-tulis-cepat {
         padding: 8px 12px;
         font-size: 0.82rem;
+    }
+
+    .catatan-kategori {
+        max-width: 65px;
     }
 }
 
@@ -3307,6 +3352,7 @@ body.dark-theme .toast-notification {
     border: 1px solid rgba(245, 158, 11, 0.25);
     line-height: 1.4;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .trash-countdown-badge.urgent {

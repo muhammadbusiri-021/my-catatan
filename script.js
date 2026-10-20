@@ -648,7 +648,7 @@ function cardHTML(c, pageType = 'semua') {
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
-            <span class="pin-badge-text">Terkunci</span>
+            <span class="lock-badge-text">Terkunci</span>
         </span>` : '';
 
     let editedTag = '';
@@ -662,7 +662,7 @@ function cardHTML(c, pageType = 'semua') {
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Tersisa ${remainingDays} hari
+                <span class="trash-badge-prefix">Tersisa </span>${remainingDays} hr
             </span>`;
     } else if (c.diubah) {
         editedTag = `<span class="catatan-edited-tag" title="Pernah diubah">• diedit</span>`;
@@ -824,6 +824,11 @@ function cardHTML(c, pageType = 'semua') {
             : `<span style="font-style: italic; color: var(--text-dim);">(Catatan Kosong)</span>`;
     }
 
+    const noteTitleText = (c.judul && c.judul.trim()) ? escapeHtml(c.judul.trim()) : '';
+    const titleHtml = noteTitleText 
+        ? `<span class="catatan-title">${noteTitleText}</span>` 
+        : `<span class="catatan-title" style="font-style: italic; color: var(--text-dim); font-weight: normal;">(Tanpa Judul)</span>`;
+
     return `
         <div class="catatan-card ${isSelected ? 'selected' : ''} ${isPinned ? 'is-pinned' : ''} ${isLocked ? 'is-locked' : ''}" data-id="${c.id}" onclick="handleCardClick(event, ${c.id})" title="${isLocked ? 'Catatan terkunci (Klik untuk memasukkan PIN)' : 'Klik untuk membaca catatan'}">
             <label class="custom-checkbox-container card-checkbox" onclick="event.stopPropagation()" title="Pilih catatan ini">
@@ -836,7 +841,7 @@ function cardHTML(c, pageType = 'semua') {
             </div>
             <div class="catatan-body">
                 <div class="catatan-top-row">
-                    <span class="catatan-title">${escapeHtml(c.judul)}</span>
+                    ${titleHtml}
                     ${getKategoriBadgeHTML(c.kategori)}
                     ${lockBadge}
                     ${editedTag}
